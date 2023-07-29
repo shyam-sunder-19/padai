@@ -63,11 +63,10 @@ const Navbar = () => {
 
             {/* Searchbar */}
             <div className="border rounded-full border-white absolute left-1/2 transform -translate-x-1/2 flex items-center rounded-full bg-transparent justify-center">
-                <button className="mr-2 rounded-full text-blue-500 bg-white hover:bg-blue-600 text-white px-4 py-2">
+                <button className="mr-2 rounded-full text-blue-500 bg-white hover:bg-blue-600 hover:text-white px-4 py-2 ">
                     search...
                 </button>
                 <input
-                    type="text"
                     className="placeholder-white max-w-s py-2 px-4 rounded-full bg-transparent outline-none"
                     placeholder="among 50 universities"
                 />
@@ -78,7 +77,7 @@ const Navbar = () => {
                 <Link href="/universities" className="text-white block md:inline-block mt-2 md:mt-0 md:ml-4">
                     Universities
                 </Link>
-                <Link href="/cources" className="text-white block md:inline-block mt-2 md:mt-0 md:ml-4">
+                <Link href="/courses" className="text-white block md:inline-block mt-2 md:mt-0 md:ml-4">
                     Courses
                 </Link>
                 <Link href="/Resources" className="text-white block md:inline-block mt-2 md:mt-0 md:ml-4">
