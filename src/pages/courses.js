@@ -12,6 +12,14 @@ import '../app/globals.css'
 
 export default function Courses() {
     const [filteredCourses, setFilteredCourses] = useState(courses_list);
+    const courses_search_keys = ["university_name", "name", "type", "specialization", "approving_bodies"]
+    const sort_params = ["fee", "term_in_years"]
+    const onSearch = (res) => {
+        setFilteredCourses(res)
+    }
+    const onFilter = (res) => {
+        setFilteredCourses(res)
+    }
     const applicable_filter_headers = {
             'checkbox':['approving_bodies', 'type', 'specialization'],
             'slider':['fee', 'term_in_years'],
@@ -82,10 +90,12 @@ export default function Courses() {
     return (
         <>
             <Navbar />
-            <div className="flex">
+            <div className="flex justify-center w-screen mt-4">
                 <Filter
                     checkbox_filter_hierarchy={checkbox_filter_hierarchy}
                     slider_ranges={slider_ranges}
+                    display_list={courses_list}
+                    onFilter={onFilter}
                 />
                 {/*<Filter
                     display_list = {courses_list}
@@ -104,13 +114,12 @@ export default function Courses() {
                 
                 
                 <div>
-                    <div className="flex justify-between">
-                        {/*
-                            <Search 
-                                display_list={courses_list}
-                                onSearch = {handleSearch}
-                            />
-                        */}
+                    <div className="flex justify-between items-center">
+                        <Search
+                            search_keys={courses_search_keys}
+                            display_list={courses_list}
+                            onSearch={onSearch}
+                        />
                         <Sort />
                     </div>
                     <div className="flex">

@@ -1,9 +1,9 @@
 const UniversityTile = (props) => {
     const squareSize = 170
     return(
-        <div className="flex w-full m-2 p-2 border rounded border-blue-500 ">
+        <div className="flex w-full m-4 p-4 border rounded hover:bg-blue-50">
             <div 
-                className="bg-blue-500 mx-2"
+                className="bg-blue-500 mx-4"
                 style={{
                 width: `${squareSize}px`,
                 height: `${squareSize}px`,
@@ -11,7 +11,7 @@ const UniversityTile = (props) => {
             >
             </div>
             <div className="flex flex-col w-full">
-                <h2 className="font-bold text-xl">
+                <h2 className="font-bold text-2xl">
                     {props.university_data.name}
                 </h2>
                 <hr></hr>
@@ -23,7 +23,7 @@ const UniversityTile = (props) => {
                         )}</div>
                         <p>Term: {props.university_data.term_in_years} year(s)</p>
                     </div>
-                    <div className="flex flex-col p-2">
+                    <div className="flex flex-col p-4">
                         <button className="px-4 py-2 mb-1 rounded-full bg-blue-500 text-white hover:bg-blue-600">
                             Enquire Now
                         </button>

@@ -1,9 +1,9 @@
 const CourseTile = (props) => {
     const squareSize = 200
     return(
-        <div className="flex w-full m-2 p-2 border rounded border-blue-500 ">
+        <div className="flex w-full m-4 p-4 border rounded hover:bg-blue-50">
             <div 
-                className="bg-blue-500 mx-2"
+                className="bg-blue-500 mx-4"
                 style={{
                 width: `${squareSize}px`,
                 height: `${squareSize}px`,
@@ -11,10 +11,10 @@ const CourseTile = (props) => {
             >
             </div>
             <div className="flex flex-col w-full">
-                <h2 className="font-bold text-xl">
+                <h2 className="font-bold text-2xl">
                     {props.course_data.name}
                 </h2>
-                <h3 className="flex">offered by<div className="font-semibold pl-1">{props.course_data.university_name}</div></h3>
+                <h3 className="flex">offered by<div className="font-semibold pl-2">{props.course_data.university_name}</div></h3>
                 <hr></hr>
                 <div className="flex w-full justify-between">
                     <div>
@@ -24,7 +24,7 @@ const CourseTile = (props) => {
                         <p>Approved By: {props.course_data.approving_bodies[0]}</p>
                         <p>Term: {props.course_data.term_in_years} year(s)</p>
                     </div>
-                    <div className="flex flex-col p-2">
+                    <div className="flex flex-col p-4">
                         <button className="px-4 py-2 mb-1 rounded-full bg-blue-500 text-white hover:bg-blue-600">
                             Enquire Now
                         </button>

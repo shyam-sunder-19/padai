@@ -12,26 +12,82 @@ import '../app/globals.css'
 
 export default function Universities() {
     const [display_list, set_display_list] = useState(universities_list)
-    const [filter_tags, set_filter_tags] = useState([])
-    const applicable_filter_headers= [
-        {'checkbox':['approving_bodies']},
-        {'slider':['fee']},
-    ]
-    
+    const universities_search_keys = ["name", "approving_bodies"]
+    const sort_params = ["fee", "term_in_years"]
+    const onSearch = (res) => {
+        set_display_list(res)
+    }
+    const onFilter = (res) => {
+        set_display_list(res)
+    }
+    const applicable_filter_headers= {
+        'checkbox':['approving_bodies'],
+        'slider':['fee'],
+    }
+
+    const checkbox_filter_hierarchy = {}
+    const slider_ranges = {}
+    applicable_filter_headers['checkbox'].forEach(
+        header => {
+            checkbox_filter_hierarchy[header] = []
+            universities_list.forEach(
+                course => {
+                    course[header].forEach(
+                        val => {
+                            if(!checkbox_filter_hierarchy[header].includes(val)){
+                                checkbox_filter_hierarchy[header].push(val)
+                            }
+                        }
+                    )
+                }
+            )
+        }
+    )
+    applicable_filter_headers['slider'].forEach(
+        header => {
+            slider_ranges[header] = {}
+            let min = universities_list[0][header]
+            let max = 0
+            universities_list.forEach(
+                course => {
+                    if(course[header] > max) {
+                        max = course[header]
+                    }
+                    if(course[header] < min) {
+                        min = course[header]
+                    }
+                }
+            )
+            slider_ranges[header]['min'] = min
+            slider_ranges[header]['max'] = max
+        }
+    )
+    console.log(checkbox_filter_hierarchy)
+    console.log(slider_ranges)
+
     return (
         <>
             <Navbar />
-            <div className='flex'>
-                <Filter />
+            <div className='flex justify-center w-screen mt-4'>
+                <Filter 
+                    checkbox_filter_hierarchy={checkbox_filter_hierarchy}
+                    slider_ranges={slider_ranges}
+                    display_list={universities_list}
+                    onFilter={onFilter}
+                />
                 <div>
-                    <div>
-                        <Search />
+                    <div className="flex justify-between items-center">
+                        <Search 
+                            search_keys={universities_search_keys}
+                            display_list={universities_list}
+                            onSearch={onSearch}
+                        />
                         <Sort />
                     </div>
                     <div>
                         {/* Filter Tags */}
                     </div>
-                    <div className='flex flex-col'>
+                    <div className="flex flex-col w-11/12">
                         {
                             display_list.map(
                                 university_data => (

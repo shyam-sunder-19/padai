@@ -30,8 +30,8 @@ const Navbar = () => {
   }, []);
     
   return (
-    <nav className='sticky top-0 z-50'>
-        <div className="flex items-center justify-between px-4 py-2 bg-blue-500 shadow-md">
+    <nav className='sticky top-0 z-50 text-lg'>
+        <div className="flex items-center justify-between px-4 py-2 bg-blue-500 shadow-md  h-20">
             {/* Logo */}
             <Link href="/">
                 <img src="/path/to/your/logo.png" alt="Logo" className="h-8 mr-4" />

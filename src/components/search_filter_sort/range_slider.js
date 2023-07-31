@@ -1,34 +1,28 @@
 import { useState, useEffect } from 'react';
-import noUiSlider from 'nouislider';
+import Nouislider from 'nouislider-react';
 
 const RangeSlider = ({ min, max }) => {
     const [currMin, setCurrMin] = useState(min)
     const [currMax, setCurrMax] = useState(max)
-    
-    useEffect(() => {
-        noUiSlider.create(document.getElementById("sliderDouble"), {
-          start: [currMin, currMax],
-          connect: [false, true, false],
-          step: 1,
-          range: { min: min, max: max },
-        });
-    }, [currMin, currMax]);
 
     return (
-      <div className="my-4">
-        <input
-            type="text"
-            className="w-16 text-center"
-            id="lowerLimitInput"
-            readOnly
-        />
-        <div className="slider" id="sliderDouble"></div>
-        <input
-            type="text"
-            className="w-16 text-center"
-            id="upperLimitInput"
-            readOnly
-        />
+      <div className='flex flex-col'>
+        <div className='flex justify-between font-light'>
+          <div>Min</div>
+          <div>Max</div>
+        </div>
+        <div className='flex justify-between'>
+          <input 
+            type='number'
+            className='border rounded w-[40%] p-2'
+            value={currMin}
+          />
+          <input 
+            type='number'
+            className='border rounded w-[40%] p-2'
+            value={currMax}
+          />
+        </div>
       </div>
     );
   };
