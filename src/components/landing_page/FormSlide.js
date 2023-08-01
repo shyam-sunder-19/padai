@@ -1,14 +1,15 @@
 'use client'
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import Form from '../Form';
 
-const SplashScreen = () => {
+const FormSlide = () => {
     const colors = ['#ff7675', '#74b9ff', '#55efc4', '#fdcb6e'];
     const breakpoint = 768; // You can adjust this breakpoint value as needed
   
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
-  
+    
     useEffect(() => {
       const handleResize = () => {
         setIsMobile(window.innerWidth < breakpoint);
@@ -32,9 +33,9 @@ const SplashScreen = () => {
     const handleSlideClick = (index) => {
       setCurrentSlide(index);
     };
-  
+
     return (
-      <div className={`flex min-h-[70vh] mt-0.1 justify-center ${isMobile ? 'flex-col' : 'flex-row'}`}>
+      <div className={`flex flex-wrap min-h-[70vh] mt-0.1 justify-center ${isMobile ? 'flex-col' : 'flex-row'}`}>
         {/* Slideshow (left for larger screens) */}
         {!isMobile && (
           <div className="flex-1 relative p-8">
@@ -62,21 +63,7 @@ const SplashScreen = () => {
         )}
 
         {/* Content (right) */}
-        <div className={`flex-1 mt-[15vh] p-8 ${isMobile ? 'order-0 mt-[1vh]' : ''}`}>
-          <h1 className="p-4 text-4xl font-bold">Catchy Title</h1>
-          <p className="p-4 text-xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nulla vel ex posuere sollicitudin. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nulla vel ex posuere sollicitudin.
-          </p>
-          <div className="p-4 flex space-x-4">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="py-2 px-4 rounded-full bg-transparent border border-gray-300 focus:outline-none focus:border-blue-500"
-            />
-            <button className="px-4 py-2 rounded-full bg-blue-500 text-white hover:bg-blue-600">Search</button>
-          </div>
-          <button className="m-4 px-4 py-2 rounded-full bg-red-500 text-white hover:bg-red-600">Click Here</button>
-        </div>
+        <Form />
 
         {/* Slideshow (bottom for smaller screens) */}
         {isMobile && (
@@ -103,10 +90,7 @@ const SplashScreen = () => {
             </div>
           </div>
         )}
+      </div>)
+}
 
-
-      </div>
-    );
-  };
-  
-  export default SplashScreen;
+export default FormSlide
