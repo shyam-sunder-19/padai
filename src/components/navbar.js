@@ -11,6 +11,12 @@ const Navbar = () => {
       setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   // for 
   useEffect(() => {
     const handleResize = () => {
@@ -80,9 +86,55 @@ const Navbar = () => {
                 <Link href="/courses" className="text-white block md:inline-block mt-2 md:mt-0 md:ml-4">
                     Courses
                 </Link>
-                <Link href="/Resources" className="text-white block md:inline-block mt-2 md:mt-0 md:ml-4">
-                    Resources
-                </Link>
+                <div className="relative">
+                    <button
+                        onClick={toggleDropdown}
+                        className="text-white hover:text-gray-200 focus:outline-none"
+                    >
+                        <span>Resources</span>
+                        <svg
+                        className={`w-4 h-4 inline ml-1 transition-transform duration-200 ${
+                            isDropdownOpen ? 'transform rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                        />
+                        </svg>
+                    </button>
+                    {/* Dropdown content */}
+                    {isDropdownOpen && (
+                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+                        <ul className="py-2">
+                            {/* Add your additional navigation elements here */}
+                            <li>
+                            <a
+                                href="#"
+                                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                            >
+                                Blogs
+                            </a>
+                            </li>
+                            <li>
+                            <a
+                                href="#"
+                                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                            >
+                                News
+                            </a>
+                            </li>
+                            {/* Add more dropdown items as needed */}
+                        </ul>
+                        </div>
+                    )}
+                </div>
                 {/* Add more links as needed */}
             </div>
         </div>
@@ -96,9 +148,55 @@ const Navbar = () => {
                 <Link href="/cources" className='text-white'>
                     Cources
                 </Link>
-                <Link href="/Resources" className='text-white'>
-                    Resources
-                </Link>
+                <div className="relative">
+                    <button
+                        onClick={toggleDropdown}
+                        className="text-white hover:text-gray-200 focus:outline-none"
+                    >
+                        <span>More</span>
+                        <svg
+                        className={`w-4 h-4 inline ml-1 transition-transform duration-200 ${
+                            isDropdownOpen ? 'transform rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7 7-7-7"
+                        />
+                        </svg>
+                    </button>
+                    {/* Dropdown content */}
+                    {isDropdownOpen && (
+                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+                        <ul className="py-2">
+                            {/* Add your additional navigation elements here */}
+                            <li>
+                            <a
+                                href="#"
+                                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                            >
+                                Blogs
+                            </a>
+                            </li>
+                            <li>
+                            <a
+                                href="#"
+                                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                            >
+                                News
+                            </a>
+                            </li>
+                            {/* Add more dropdown items as needed */}
+                        </ul>
+                        </div>
+                    )}
+                </div>
                 {/* Add more links as needed */}
             </div>
         )}   

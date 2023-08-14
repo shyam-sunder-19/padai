@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
+import PopupForm from "./PopupForm";
 
 const SplashScreen = () => {
     const colors = ['#ff7675', '#74b9ff', '#55efc4', '#fdcb6e'];
@@ -8,7 +9,12 @@ const SplashScreen = () => {
   
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
-  
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const togglePopup = () => {
+      setIsPopupOpen(!isPopupOpen);
+    };
+
     useEffect(() => {
       const handleResize = () => {
         setIsMobile(window.innerWidth < breakpoint);
@@ -75,7 +81,19 @@ const SplashScreen = () => {
             />
             <button className="px-4 py-2 rounded-full bg-blue-500 text-white hover:bg-blue-600">Search</button>
           </div>
-          <button className="m-4 px-4 py-2 rounded-full bg-red-500 text-white hover:bg-red-600">Click Here</button>
+          <p className="px-4 py-2 text-2xl">
+            Or...
+          </p>
+          <button 
+            className="m-4 px-8 py-4 rounded-full bg-red-500 text-white hover:bg-red-600"
+            onClick={togglePopup}
+          >
+            Get <b>Free</b> Expert Advice
+          </button>
+          <PopupForm 
+            isPopupOpen={isPopupOpen}
+            closeForm={togglePopup}
+          />
         </div>
 
         {/* Slideshow (bottom for smaller screens) */}
