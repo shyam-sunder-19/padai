@@ -1,23 +1,29 @@
+import Link from 'next/link'
+
 const UniversityTile = (props) => {
     const squareSize = 170
+    let university_link = "/university/"
+    university_link += props.university_data.id
     return(
         <div className="flex w-full m-4 p-4 border rounded hover:bg-blue-50">
-            <div 
-                className="bg-blue-500 mx-4"
+            <img 
+                src={props.university_data.picture[0]}
                 style={{
-                width: `${squareSize}px`,
-                height: `${squareSize}px`,
+                    width: `${squareSize}px`,
+                    height: `${squareSize}px`,
+                    marginRight: `5px`
                 }}
-            >
-            </div>
+            ></img>
+            
             <div className="flex flex-col w-full">
-                <h2 className="font-bold text-2xl">
-                    {props.university_data.name}
-                </h2>
+                <Link href={university_link}>
+                    <h2 className="font-bold text-2xl">
+                        {props.university_data.name}
+                    </h2>
+                </Link>
                 <hr></hr>
                 <div className="flex w-full justify-between">
                     <div>
-                        <p>Fee: {props.university_data.fee}</p>
                         <div className="flex">Approved By: {props.university_data.approving_bodies.map(
                             body => <div className="mx-1">{body}</div>
                         )}</div>

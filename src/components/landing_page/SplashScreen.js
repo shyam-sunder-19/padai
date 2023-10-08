@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import PopupForm from "./PopupForm";
+import PopupForm from "../PopupForm";
 
 const SplashScreen = () => {
     const colors = ['#ff7675', '#74b9ff', '#55efc4', '#fdcb6e'];

@@ -7,11 +7,13 @@ import Sort from '@/components/search_filter_sort/sort'
 import Filter from "@/components/search_filter_sort/filter"
 import CourseTile from "@/components/courses_page/course_tile"
 import courses_list from "@/utils/example_courses_json/courses_list"
+import FloatingButton from "@/components/FloatingButton"
+import courses from "@/data/courses"
 
 import '../app/globals.css'
 
 export default function Courses() {
-    const [filteredCourses, setFilteredCourses] = useState(courses_list);
+    const [filteredCourses, setFilteredCourses] = useState(courses);
     const courses_search_keys = ["university_name", "name", "type", "specialization", "approving_bodies"]
     const sort_params = ["fee", "term_in_years"]
     const onSearch = (res) => {
@@ -90,6 +92,7 @@ export default function Courses() {
     return (
         <>
             <Navbar />
+            <FloatingButton />
             <div className="flex justify-center w-screen mt-4">
                 <Filter
                     checkbox_filter_hierarchy={checkbox_filter_hierarchy}

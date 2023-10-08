@@ -6,6 +6,7 @@ export default function About() {
         <>
             <Navbar />
             <h>About Us</h>
+            <img src={'https://d1aeya7jd2fyco.cloudfront.net/banners/lpu-online-.webp'} />
         </>
     )
 }

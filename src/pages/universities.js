@@ -1,17 +1,24 @@
 'use client'
 
-import {useState} from 'react'
+import CSVReader from 'csv-reader'
+import {useState, useEffect} from 'react'
 import Navbar from "@/components/navbar"
 import Search from '@/components/search_filter_sort/search'
 import Sort from '@/components/search_filter_sort/sort'
 import Filter from "@/components/search_filter_sort/filter"
 import UniversityTile from "@/components/universities_page/university_tile"
 import universities_list from "@/utils/example_universities_json/universities_list"
+import FloatingButton from '@/components/FloatingButton'
+
+import universitiy_json from '@/data/result'
 
 import '../app/globals.css'
 
 export default function Universities() {
-    const [display_list, set_display_list] = useState(universities_list)
+    const [display_list, set_display_list] = useState(universitiy_json)
+
+    const [data, setData] = useState([]);
+
     const universities_search_keys = ["name", "approving_bodies"]
     const sort_params = ["fee", "term_in_years"]
     const onSearch = (res) => {
@@ -67,6 +74,7 @@ export default function Universities() {
 
     return (
         <>
+            <FloatingButton />
             <Navbar />
             <div className='flex justify-center w-screen mt-4'>
                 <Filter 
