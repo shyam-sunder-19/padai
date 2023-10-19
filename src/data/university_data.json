@@ -1,4 +1,4 @@
-const university_json = [
+[
     {
       "name": "DU SOL",
       "about": [
@@ -2390,5 +2390,3 @@ const university_json = [
       ]
     }
   ]
-
-export default university_json
