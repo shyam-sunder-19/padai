@@ -25,7 +25,7 @@ const UniversityTile = (props) => {
                 <div className="flex w-full justify-between">
                     <div>
                         <div className="flex">Approved By: {props.university_data.approving_bodies.map(
-                            body => <div className="mx-1">{body}</div>
+                            (body, index) => <div key={index} className="mx-1">{body}</div>
                         )}</div>
                         <p>Term: {props.university_data.term_in_years} year(s)</p>
                     </div>

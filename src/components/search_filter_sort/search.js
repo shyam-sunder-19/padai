@@ -59,7 +59,9 @@ const Search = ({ search_keys, display_list, onSearch }) => {
             </div>
             <div className='mx-4 font-light'>
                 {
-                    search_used?<div>Showing <b>{search_results.length}</b> results for "<b>{document.getElementById("search_json").value}</b>"</div>:<div>Showing <b>{display_list.length}</b> results</div>
+                    search_used?
+                    <div>Showing <b>{search_results.length}</b> results for &ldquo;<b>{document.getElementById("search_json").value}</b>&rdquo;</div>
+                    :<div>Showing <b>{display_list.length}</b> results</div>
                 }
             </div>
         </div>

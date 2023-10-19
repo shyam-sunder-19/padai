@@ -134,7 +134,7 @@ const headings = [
                   <div className="flex p-1 flex-wrap justify-around">
                     {
                       uni_data.placement_company_images.map(
-                        img => <img src={img}></img>
+                        (img, index) => <img key={index} src={img}></img>
                       )
                     }
                   </div>
@@ -142,7 +142,7 @@ const headings = [
                 <div>
                   {
                     uni_data.course_names.map(
-                      course => {
+                      (course) => {
                         let c = course_data.find(el => el.course_name === course)
                         console.log(c)
                       }

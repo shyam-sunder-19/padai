@@ -191,7 +191,7 @@ const headings = [
                   <div className="flex p-1 flex-wrap justify-around">
                     {
                       course_data.placement_company_image_links.map(
-                        img => <img src={img}></img>
+                        (img, index) => <img key={index} src={img}></img>
                       )
                     }
                   </div>
