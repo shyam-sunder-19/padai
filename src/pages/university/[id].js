@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react'
 import { useRouter } from "next/router"
 import FloatingButton from "@/components/FloatingButton";
 import university_data from "@/data/university_data.json"
+import courses from "@/data/courses"
 
 const headings = [
     { id: 'section-1', title: 'Section 1' },
