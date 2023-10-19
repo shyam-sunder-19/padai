@@ -11,7 +11,7 @@ export default function Blog({ blog_list }) {
                 <div>
                     {
                         blog_title.map(
-                            blog => <div className="text-xl my-4 p-6 bg-blue-100 rounded-full">{blog}</div>
+                            (blog, index) => <div key={index} className="text-xl my-4 p-6 bg-blue-100 rounded-full">{blog}</div>
                         )
                     }
                 </div>

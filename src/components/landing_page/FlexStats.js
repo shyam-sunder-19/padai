@@ -5,7 +5,7 @@ const FlexStats = ({ stats }) => {
                 Object.keys(stats).map(
                     stat => {
                         return (
-                            <div className="flex flex-col w-96 justify-center items-center p-8 text-white">
+                            <div key={stat} className="flex flex-col w-96 justify-center items-center p-8 text-white">
                                 <p className="text-4xl font-bold">{stats[stat]} +</p>
                                 <p className="text-2xl">{stat}</p>
                             </div>

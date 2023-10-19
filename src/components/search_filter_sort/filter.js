@@ -101,7 +101,7 @@ const Filter = ({checkbox_filter_hierarchy, slider_ranges, display_list, onFilte
                     applied_filters.map(
                         (filter, index) => {
                             return(
-                                <div className='rounded bg-blue-300 flex p-1 mr-1 mb-1'>
+                                <div key={index} className='rounded bg-blue-300 flex p-1 mr-1 mb-1'>
                                     <p className='border-r-1 mr-1'>{filter}</p>
                                 </div>
                             )
@@ -111,15 +111,15 @@ const Filter = ({checkbox_filter_hierarchy, slider_ranges, display_list, onFilte
             </div>
             {
                 Object.keys(checkbox_filter_hierarchy).map(
-                    (header) => {
+                    (header, index) => {
                         return(
-                            <div className='border rounded p-4 mb-4'> 
+                            <div key={index} className='border rounded p-4 mb-4'> 
                                 <b>{user_friendly_lang[header]}</b>
                                 <div className='flex flex-col'>
                                     {
                                         checkbox_filter_hierarchy[header].map(
-                                            (el) => (
-                                                <label>
+                                            (el, i) => (
+                                                <label key={i}>
                                                     <input 
                                                         ref={el=>checkboxes_ref.current.push(el)}
                                                         type="checkbox"
@@ -154,8 +154,8 @@ const Filter = ({checkbox_filter_hierarchy, slider_ranges, display_list, onFilte
             }
             {
                 Object.keys(slider_ranges).map(
-                    header => (
-                        <div className='border rounded p-4 mb-4'> 
+                    (header, index) => (
+                        <div key={index} className='border rounded p-4 mb-4'> 
                             <b>{user_friendly_lang[header]}</b>
                             <div className='flex flex-col'>
                                 <RangeSlider
