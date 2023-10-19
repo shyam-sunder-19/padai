@@ -115,12 +115,12 @@ const Navbar = () => {
                         <ul className="py-2">
                             {/* Add your additional navigation elements here */}
                             <li>
-                            <a
-                                href="#"
+                            <Link
+                                href="/blog"
                                 className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                             >
                                 Blogs
-                            </a>
+                            </Link>
                             </li>
                             <li>
                             <a
