@@ -82,7 +82,7 @@ const Filter = ({checkbox_filter_hierarchy, slider_ranges, display_list, onFilte
     return(
         <div className='flex flex-col w-2/12 py-2 px-4 bg-blue-50 h-full rounded'>
             <button 
-                className="w-40 my-4 rounded-full text-white bg-blue-500 hover:bg-blue-700 hover:text-white px-4 py-2"
+                className="w-40 my-4 rounded text-white bg-blue-500 hover:bg-blue-700 hover:text-white px-4 py-2"
                 onClick={() => {
                     set_applied_filters([])
                     set_filtered_list(display_list)

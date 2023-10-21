@@ -7,14 +7,15 @@ import Sort from '@/components/search_filter_sort/sort'
 import Filter from "@/components/search_filter_sort/filter"
 import CourseTile from "@/components/courses_page/course_tile"
 import courses_list from "@/utils/example_courses_json/courses_list"
+import course_data from "@/data/courses_data.json"
 import FloatingButton from "@/components/FloatingButton"
 import courses from "@/data/courses"
 
 import '../app/globals.css'
 
 export default function Courses() {
-    const [filteredCourses, setFilteredCourses] = useState(courses);
-    const courses_search_keys = ["university_name", "name", "type", "specialization", "approving_bodies"]
+    const [filteredCourses, setFilteredCourses] = useState(course_data);
+    const courses_search_keys = ["course_name"]
     const sort_params = ["fee", "term_in_years"]
     const onSearch = (res) => {
         setFilteredCourses(res)
@@ -120,7 +121,7 @@ export default function Courses() {
                     <div className="flex justify-between items-center">
                         <Search
                             search_keys={courses_search_keys}
-                            display_list={courses_list}
+                            display_list={course_data}
                             onSearch={onSearch}
                         />
                         <Sort />

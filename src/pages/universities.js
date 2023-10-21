@@ -10,16 +10,16 @@ import UniversityTile from "@/components/universities_page/university_tile"
 import universities_list from "@/utils/example_universities_json/universities_list"
 import FloatingButton from '@/components/FloatingButton'
 
-import universitiy_json from '@/data/result'
+import university_data from '@/data/university_data'
 
 import '../app/globals.css'
 
 export default function Universities() {
-    const [display_list, set_display_list] = useState(universitiy_json)
+    const [display_list, set_display_list] = useState(university_data)
 
     const [data, setData] = useState([]);
 
-    const universities_search_keys = ["name", "approving_bodies"]
+    const universities_search_keys = ["name"]
     const sort_params = ["fee", "term_in_years"]
     const onSearch = (res) => {
         set_display_list(res)
@@ -80,14 +80,14 @@ export default function Universities() {
                 <Filter 
                     checkbox_filter_hierarchy={checkbox_filter_hierarchy}
                     slider_ranges={slider_ranges}
-                    display_list={universities_list}
+                    display_list={university_data}
                     onFilter={onFilter}
                 />
                 <div>
                     <div className="flex justify-between items-center">
                         <Search 
                             search_keys={universities_search_keys}
-                            display_list={universities_list}
+                            display_list={university_data}
                             onSearch={onSearch}
                         />
                         <Sort />

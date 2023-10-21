@@ -30,13 +30,13 @@ const UniversityTile = (props) => {
                         <p>Term: {props.university_data.term_in_years} year(s)</p>
                     </div>
                     <div className="flex flex-col p-4">
-                        <button className="px-4 py-2 mb-1 rounded-full bg-blue-500 text-white hover:bg-blue-600">
+                        <button className="px-4 py-2 mb-1 bg-blue-500 text-white hover:bg-blue-600">
                             Enquire Now
                         </button>
-                        <button className="px-4 py-2 mb-1 rounded-full bg-blue-500 text-white hover:bg-blue-600">
+                        <button className="px-4 py-2 mb-1 bg-blue-500 text-white hover:bg-blue-600">
                             Download Brochure
                         </button>
-                        <button className="px-4 py-2 rounded-full bg-blue-500 text-white hover:bg-blue-600">
+                        <button className="px-4 py-2 bg-blue-500 text-white hover:bg-blue-600">
                             Add to Compare
                         </button>
                     </div>
